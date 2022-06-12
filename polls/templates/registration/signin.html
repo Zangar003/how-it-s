@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        .conteiner{
+            background-color: white;
+            width: 400px;
+            height:auto;
+            border:1px solid;
+            display: flex;
+            justify-content:center;
+            margin:100px 100px 100px  550px;
+            border-radius:10px;
+        }
+<!--        .text{-->
+<!--            margin:70px;-->
+<!--            font-size:20px;-->
+<!--        }-->
+<!--        .text1{-->
+<!--            margin: 5px;-->
+<!--            display: flex;-->
+<!--            justify-content: center;-->
+<!--        }-->
+<!--        .input{-->
+<!--            display:flex;-->
+<!--            margin:6px;-->
+<!--            width: 230px;-->
+<!--            height: 40px;-->
+<!--            border:2px solid red;-->
+<!--            border-radius:5px;-->
+
+<!--        }-->
+
+   </style>
+
+</head>
+<!--<body style ="background-image: url(https://mobimg.b-cdn.net/v3/fetch/46/46b604f54bbc8a98b54f23d88b230140.jpeg)">-->
+<body>
+    <div class ="conteiner">
+
+        <form method="post" >
+            <h3 class ="text1">Sign In</h3>
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="exampleInputEmail1">Username</label>
+                <input class="form-control" type="text" id ="username" name ="username" aria-describedby="emailHelp" placeholder="Enter your username" required>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input  class="form-control"  type="password" id ="password" name ="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button  style="margin:10px;" type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <form method="post" style="margin:50px" >
+     {% csrf_token %}
+        <h1>Update polls_movie</h1>
+        <label>Id: </label><input class ="form-control" type="number" id ="id" name="id" placeholder="id">
+        <label>Title</label><input class ="form-control" type="text" name ="title" id ="title"><br>
+        <label>Country</label><input  class ="form-control" type="text" name ="country" id ="country"><br>
+        <label>category</label><input class ="form-control" type="number" name ="category" id ="category" min ="1" max ="8"><br>
+        <label>desc</label><input class ="form-control" type="number" name ="desc" id ="desc" min ="1" max ="8"><br>
+        <label>price</label><br><input class ="from-control" type="text" name ="price" id ="price"><br>
+        <button  class ="btn btn-outline-primary" type="submit">Submit</button>
+    </form>
+
+    {% for i in data %}
+            <h1>Updated: </h1>
+            <div class="col-sm" id ="mar">
+
+                    <h5 class="card-title text-primary">Title: {{ i.title }}</h5>
+                    <p class="card-text text-success" >price: {{ i.price }} $</p>
+                    <p class="card-text">Country: {{i.country }}</p>
+                    <p class ="card-text">categroy_id {{i.category_id}}</p>
+                    <p class ="card-text">desc {{i.desc_id}}</p>
+            </div>
+            {% endfor %}
+</body>
+</html>

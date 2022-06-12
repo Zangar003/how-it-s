@@ -1,0 +1,44 @@
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+<table class ="table table-striped table-bordered">
+    <thead class="thead-dark">
+    <tr>
+        <th>Title</td>
+        <th>Country</th>
+        <th>Photo</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>video</th>
+      <th>price</th>
+      <th>slug</th>
+    </tr>
+    </thead>
+    <tr>
+        <td>{{ object.title }}</td>
+        <td>{{ object.country  }}</td>
+        <td>{{ object.photo  }}</td>
+        <td>{{ object.desc }}</td>
+        <td>{{ object.category }}</td>
+        <td>{{ object.video }}</td>
+        <td>{{ object.price }}</td>
+        <td>{{ object.slug}}</td>
+    </tr>
+</table>
+
+
+<!--<div>-->
+<!--  <h2>Title: {{ object.title }}</h2>-->
+<!--  <p>country: {{ object.country  }}</p>-->
+<!--  <p>photo: {{ object.photo  }}</p>-->
+<!--  <p>desc: {{ object.desc }}</p>-->
+<!--  <p>category: {{ object.category }}</p>-->
+<!--  <p>video: {{ object.video }}</p>-->
+<!--  <p>price :{{ object.price }}</p>-->
+<!--  <p>slug: {{ object.slug}}</p>-->
+<!--</div>-->
+</body>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    body{
+        font-family:"Lato", sans-serif;
+    }
+    .cont{
+	display: block;
+	flex-direction: row;
+	border: 1px solid;
+	width: 100%;
+	height: 70px;
+
+
+}
+.cont ul{
+	display: flex;
+	padding-left: 30px;
+	padding: 15px;
+
+}
+ul li{
+	display: flex;
+	flex-direction: row;
+	margin-left: 35px;
+	font-size: 25px;
+	color: rgb(255, 255,255);
+}
+.cont ul img{
+	width: 150px;
+	height: 40px;
+	border-radius: 3px;
+}
+.cont ul input{
+	width: 800px;
+	height: 40px;
+	border-radius: 5px;
+}
+            .mySlides1 {
+	display: none;
+
+}
+
+img {vertical-align: middle;}
+
+/* Контейнер слайд-шоу */
+.slideshow-container {
+
+  max-width: 1300px;
+  position: relative;
+  margin: 0px 10px 10px 100px;
+
+}
+
+/* Подпись текста */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Номер текста (1/3 и т.д.) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* Точки/пули/индикаторы */
+.dot1 {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 1s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Исчезающая анимация */
+.fade1 {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade1 {
+  from {opacity:.4}
+  to {opacity: 1}
+}
+
+@keyframes fade1 {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+        </style>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{% static 'polls/css/mainstyle.css' %}">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <div class ="cont bg-info" >
+		<ul>
+			<li><a href ="{% url 'index' %}"><img src="{% static 'polls/image/market24-sk.png' %}"></a></li>
+            <li><form method="post">
+                {% csrf_token %}
+			    <input class ="from-control" type="search" placeholder="search" name="text" id="text">
+                <button class = "btn btn-dark tm-search-btn text-white " type="submit">Find</button>
+            </form></li>
+			<li><button class ="btn btn-dark" type ="submit"><a class ="text-white"href ="{% url 'signup' %}">SignUp</a></button></li>
+			<li><button class ="btn btn-dark"  type ="submit"><a  class ="text-white"href = "{% url 'signin' %}">SignIn</a></button></li>
+
+		</ul>
+
+	<div>
+          {% for i in data2 %}
+
+            <table border="1px" class ="table">
+                <tr><th>Name</th>
+                    <th>Last_name</th>
+                    <th>email</th>
+                    <th>phon_number</th>
+                    <th>card_number</th>
+                    <th>address</th>
+                    <th>password</th>
+                    <th>money</th>
+                </tr>
+
+                <tr><td>{{i.First_name}}</td>
+                    <td>{{i.Last_name }}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.phon_number}}</td>
+                    <td>{{i.card_number}}</td>
+                    <td>{{i.address}}</td>
+                    <td>{{i.password}}</td>
+                    <td>{{i.money}}</td>
+
+                </tr>
+
+            </table>
+            {% endfor%}
+
+{% block content %}
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <a class ="text-white"href="{% url 'admin:index' %}">Admin</a>
+            <a class ="text-white" href="{% url 'table' %}">Data</a>
+            <a class ="text-white" href="{% url 'customer' %}">Customer</a>
+            {% if user != 'admin' %}
+                <a class ="text-white" href="{% url 'update' %}">Update</a>
+                <a class ="text-white" href="{% url 'insert'%}">Insert</a>
+                <a class ="text-white" href ="{% url 'delete'%}">Drop</a>
+            {% endif %}
+            <a class ="text-white"href="{% url 'tags' %}">tags</a>
+<!--            <a class ="text-white" href="{% url 'gmail'%}">Gmail</a>-->
+<!--            <a class ="text-white" href="{% url 'video'%}">Video</a>-->
+        </div>
+        <div id ="main">
+            <button class ="openbtn" onclick="openNav()">☰ Open Sidebar</button>
+        </div>
+<script>
+{% endblock %}
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+
+
+
+<!--    </div>-->
+    <hr>
+         </style>
+
+  <div class="slideshow-container1">
+  {% for i in fon %}
+      <div class="mySlides1 fade1">
+        <div class="numbertext">1 / 3</div>
+          <img src="{{i.photo.url}}" alt="Природа" style="width:85%; max-height: 500px;margin-left:130px; ">
+          <div class="text">Подпись текста</div>
+      </div>
+
+{% endfor %}
+  </div>
+<br>
+<div style="text-align:center">
+  <span class="dot1"></span>
+  <span class="dot1"></span>
+  <span class="dot1"></span>
+    <span class="dot1"></span>
+</div>
+    </div>
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides1");
+  var dots = document.getElementsByClassName("dot1");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {
+    slideIndex = 1
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace("active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 6000); // Меняйте изображение каждые 2 секунды
+}
+</script><hr><br>
+<style>
+    .image{
+            width:300px;
+            height:250px;
+        }
+        #mar{
+           height:400px;
+           margin: 10px;
+           border:0px solid;
+           background-color:white;
+           border-radius:5px;
+        }
+</style>
+
+    <div class="container">
+        <div class="row">
+            {% for i in data %}
+            <div class="col-sm" id ="mar">
+                 <div ><img  class ="image"  src="media//{{ i.photo}}">
+                <h5 class="card-title text-primary">Title: {{ i.title }}</h5>
+                <p class="card-text text-success" >price: {{ i.price }} $</p>
+                <p class="card-text">Country: {{i.country }}</p>
+                     <div class="card-footer bg-transparent border-dark">
+
+<!--                         <button class ="btn btn-outline-success"><a href ="{% url 'video' %}">See</a></button>-->
+                         <a href="update2/{{i.id}}" class="btn btn-outline-primary" id = '{{i.id}}'>See Free</a>
+                     </div>
+
+
+                 </div>
+
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    </body>
+</html>

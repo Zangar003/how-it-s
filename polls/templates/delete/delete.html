@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<form method="post" style="margin:50px" >
+     {% csrf_token %}
+        <h1>Delete polls_movie table</h1>
+        <label>Id: </label><input class ="form-control" type="number" id ="id" name="id">
+        <button class ="btn btn-outline-primary" type="submit">Submit</button>
+</form>
+
+    {% if r == True%}
+        <p>Deleted</p>
+    {% endif %}
+</body>
+</html>

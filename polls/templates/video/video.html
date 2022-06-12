@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    video{
+        width:500px;
+        height:400px;
+    }
+</style>
+    <div class ="container">
+        {% for i in vi %}
+        <h1>{{i.caption}}</h1>
+        <video class="video-fluid" controls muted>
+            <source src ="{{i.video.url}}" type="video/mp4"/>
+        </video>
+        {% endfor %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .conteiner{
+            background-color: white;
+            width: 500px;
+            height:auto;
+            border:1px solid;
+            display: flex;
+            justify-content:center;
+            margin:100px 100px 100px  550px;
+            border-radius:10px;
+        }
+        .text{
+            margin:70px;
+            font-size:20px;
+        }
+        .text1{
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+        }
+        .input{
+            display:flex;
+            margin:6px;
+            width: 230px;
+            height: 40px;
+            border:2px solid red;
+            border-radius:5px;
+
+        }
+
+
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body >
+<div class ="conteiner">
+    <form  method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3 class ="text1">Sign Up</h3>
+        <div class="form-error">{{form.non_field_errors}}</div>
+
+        {% for i in form %}
+            <p class = "form-label "><label class = "form-label style" for ="{{i.id_for_label }}">{{i.label}}:</label>{{i}}</p>
+            <div class="form-eror">{{i.errors}}</div>
+
+        {% endfor%}
+        <button  class ="btn btn-outline-primary justify-content-start" type ="Submit">Sign Up</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+{% load poll_extras %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% get_customer as data %}
+    {% for i in data %}
+       <table border="1px" class ="table table-striped">
+           <thead class="thead-dark">
+                <tr><th>Name</th>
+                    <th>Last_name</th>
+                    <th>email</th>
+                    <th>phon_number</th>
+                    <th>card_number</th>
+                    <th>address</th>
+                    <th>password</th>
+                    <th>money</th>
+                </tr>
+
+                <tr><td>{{i.First_name}}</td>
+                    <td>{{i.Last_name }}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.phon_number}}</td>
+                    <td>{{i.card_number}}</td>
+                    <td>{{i.address}}</td>
+                    <td>{{i.password}}</td>
+                    <td>{{i.money}}</td>
+
+                </tr>
+
+
+    {% endfor %}
+</body>
+</html>
